@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 
-@interface ViewController ()
+//@interface ViewController ()
 @interface ViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) UITextField *beerPercentTextField;
@@ -18,8 +18,11 @@
 
 @property (weak, nonatomic) UILabel *resultLabel;
 
+@property (weak, nonatomic) UIButton *calculateButton;
+
 @property (weak, nonatomic) UILabel *numberOfBeersLabel;
 
+@property (weak, nonatomic) UITapGestureRecognizer *hideKeyboardTapGestureRecognizer;
 @end
 
 @implementation ViewController
@@ -38,23 +41,23 @@
     
     // Tells `self.beerCountSlider` that when its value changes, it should call `[self -sliderValueDidChange:]`.
     // This is equivalent to connecting the IBAction in our previous checkpoint
-    self.beerCountSlider addTarget:self action:@selector(sliderValueDidChange:) forControlEvents:([UIControlEventValueChanged];
+    [self.beerCountSlider addTarget:self action:@selector(sliderValueDidChange:) forControlEvents:UIControlEventValueChanged];
                                                                                                   
     //Set the minimum and maximum number of beers
-    self.beerCount.minimumValue = 1;
-    self.beerCount.maximumValue = 10;
+    self.beerCountSlider.minimumValue = 1;
+    self.beerCountSlider.maximumValue = 10;
                                                                                                   
     // Tells `self.calculateButton` that when a finger is lifted from the button while still inside its bounds, to call `[self -buttonPressed:]`
     [self.calculateButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
    
     // Set the title of the button
-    [self.calculateButton setTitle:NSLocalizedString(@"Calculate"!,@"Calculate comamnd") forState:UIControlStateNormal];
+    [self.calculateButton setTitle:NSLocalizedString(@"Calculate!",@"Calculate comamnd") forState:UIControlStateNormal];
 
     // Tells the tap gesture recognizer to call `[self -tapGestureDidFire:]` when it detects a tap.
-    [self.hideKeyboardTapGestureRecongizer addTarget:self action:@selector(tapGestureDidFire:)];
+    [self.hideKeyboardTapGestureRecognizer addTarget:self action:@selector(tapGestureDidFire:)];
   
     // Get rid of the maximum number of lines on the label
-    [self.resultLabel.numberOfLines = 0];
+    self.resultLabel.numberOfLines = 0;
     
 }
 
@@ -65,8 +68,8 @@
 
 
 - (void)loadView {
-    [self.view = [[UIView alloc] init]; //alloc and init all-encompassing view
-}
+    self.view = [[UIView alloc] init]; //alloc and init all-encompassing view
+
      //allocate and initialize each of our views and the gesture recognizer
      UITextField *textField = [[UITextField alloc] init];
      UISlider *slider = [[UISlider alloc] init];
@@ -75,19 +78,20 @@
      UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
      
      //Add each view and gesture recognizer as the view's subview
-     [self.view addSubView:textField];
-     [self.view addSubView:slider];
-     [self.view addSubView:label];
-     [self.view addSubView:button];
-     [self.view addGestureRecognizer:tap];
+    [self.view addSubview:textField];
+    [self.view addSubview:slider];
+    [self.view addSubview:label];
+    [self.view addSubview:button];
+    [self.view addGestureRecognizer:tap];
      
      //Assign the views and gesture recognizer to our properties
-     self.beerPercentTextField;
-     self.beerCountSlider;
-     self.resultLabel;
-     self.numberOfBeersLabel;
-     self.hideKeyboardTapGestureRecognizer = tap;
-     
+    self.beerPercentTextField = textField;
+    self.beerCountSlider = slider;
+    self.resultLabel = label;
+//     self.numberOfBeersLabel =
+    self.calculateButton = button;
+    self.hideKeyboardTapGestureRecognizer = tap;
+}
      -(void)viewWillLayoutSubviews {
          [super viewWillLayoutSubviews];
          
