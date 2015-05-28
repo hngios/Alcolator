@@ -23,6 +23,7 @@
 @property (weak, nonatomic) UILabel *numberOfBeersLabel;
 
 @property (weak, nonatomic) UITapGestureRecognizer *hideKeyboardTapGestureRecognizer;
+
 @end
 
 @implementation ViewController
@@ -179,7 +180,7 @@
 }
 
 
-- (void) viewWasTapped:(UITapGestureRecognizer *)sender {
+- (void) tapGestureDidFire:(UITapGestureRecognizer *)sender {
           [self.beerPercentTextField resignFirstResponder];
 }
 
