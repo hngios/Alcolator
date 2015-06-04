@@ -12,17 +12,17 @@
 //@interface ViewController ()
 @interface ViewController () <UITextFieldDelegate>
 
-@property (weak, nonatomic) UITextField *beerPercentTextField;
+//@property (weak, nonatomic) UITextField *beerPercentTextField;
 
-@property (weak, nonatomic) UISlider *beerCountSlider;
+//@property (weak, nonatomic) UISlider *beerCountSlider;
 
-@property (weak, nonatomic) UILabel *resultLabel;
+//@property (weak, nonatomic) UILabel *resultLabel;
 
-@property (weak, nonatomic) UIButton *calculateButton;
+//@property (weak, nonatomic) UIButton *calculateButton;
 
-@property (weak, nonatomic) UILabel *numberOfBeersLabel;
+//@property (weak, nonatomic) UILabel *numberOfBeersLabel;
 
-@property (weak, nonatomic) UITapGestureRecognizer *hideKeyboardTapGestureRecognizer;
+//@property (weak, nonatomic) UITapGestureRecognizer *hideKeyboardTapGestureRecognizer;
 
 @end
 
@@ -75,7 +75,7 @@
      UITextField *textField = [[UITextField alloc] init];
      UISlider *slider = [[UISlider alloc] init];
      UILabel *label = [[UILabel alloc] init];
-     UIButton *button = [[UIButton alloc] init];
+     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
      UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
      
      //Add each view and gesture recognizer as the view's subview
@@ -83,31 +83,40 @@
     [self.view addSubview:slider];
     [self.view addSubview:label];
     [self.view addSubview:button];
+    self.numberOfBeersLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.numberOfBeersLabel];
     [self.view addGestureRecognizer:tap];
      
      //Assign the views and gesture recognizer to our properties
     self.beerPercentTextField = textField;
     self.beerCountSlider = slider;
     self.resultLabel = label;
-//     self.numberOfBeersLabel =
+  //  self.numberOfBeersLabel = [[UILabel alloc] init];
     self.calculateButton = button;
     self.hideKeyboardTapGestureRecognizer = tap;
+    self.numberOfBeersLabel.text = @"5";
+    self.resultLabel.text = @"Result Here";
 }
      -(void)viewWillLayoutSubviews {
          [super viewWillLayoutSubviews];
          
-         CGFloat viewWidth = 320;
+         CGFloat viewWidth = 736;
          CGFloat padding = 20;
          CGFloat itemWidth = viewWidth - padding - padding;
          CGFloat itemHeight = 44;
          
          self.beerPercentTextField.frame = CGRectMake(padding, padding, itemWidth, itemHeight);
+     //    self.beerPercentTextField.backgroundColor = [UIColor yellowColor];
          
          CGFloat bottomOfTextField = CGRectGetMaxY(self.beerPercentTextField.frame);
          self.beerCountSlider.frame = CGRectMake(padding, bottomOfTextField + padding, itemWidth, itemHeight);
          
          CGFloat bottomOfSlider = CGRectGetMaxY(self.beerCountSlider.frame);
          self.resultLabel.frame = CGRectMake(padding, bottomOfSlider + padding, itemWidth, itemHeight * 4);
+         
+         CGFloat bottomNumberOfBeersLabel = CGRectGetMaxY(self.beerCountSlider.frame);
+         self.numberOfBeersLabel.frame = CGRectMake(padding, bottomNumberOfBeersLabel + padding, itemWidth, itemHeight);
+      //   self.numberOfBeersLabel.backgroundColor = [UIColor redColor];
          
          CGFloat bottomOfLabel = CGRectGetMaxY(self.resultLabel.frame);
          self.calculateButton.frame = CGRectMake(padding, bottomOfLabel + padding, itemWidth, itemHeight);
@@ -183,7 +192,6 @@
 - (void) tapGestureDidFire:(UITapGestureRecognizer *)sender {
           [self.beerPercentTextField resignFirstResponder];
 }
-
 
 
 @end
