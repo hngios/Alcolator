@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30014BAF1B23CB26005A07CD /* BLCWhiskeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30014BAE1B23CB26005A07CD /* BLCWhiskeyViewController.m */; };
 		30A5C63B1B0D10D0008A15A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A5C63A1B0D10D0008A15A0 /* main.m */; };
 		30A5C63E1B0D10D0008A15A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A5C63D1B0D10D0008A15A0 /* AppDelegate.m */; };
 		30A5C6411B0D10D0008A15A0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A5C6401B0D10D0008A15A0 /* ViewController.m */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30014BAD1B23CB25005A07CD /* BLCWhiskeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCWhiskeyViewController.h; path = ../../BLCWhiskeyViewController.h; sourceTree = "<group>"; };
+		30014BAE1B23CB26005A07CD /* BLCWhiskeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCWhiskeyViewController.m; path = ../../BLCWhiskeyViewController.m; sourceTree = "<group>"; };
 		30A5C6351B0D10D0008A15A0 /* ALCOLATOR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALCOLATOR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A5C63A1B0D10D0008A15A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		30A5C63C1B0D10D0008A15A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 			children = (
 				30A5C63F1B0D10D0008A15A0 /* ViewController.h */,
 				30A5C6401B0D10D0008A15A0 /* ViewController.m */,
+				30014BAD1B23CB25005A07CD /* BLCWhiskeyViewController.h */,
+				30014BAE1B23CB26005A07CD /* BLCWhiskeyViewController.m */,
 				30A5C6451B0D10D0008A15A0 /* Images.xcassets */,
 				30A5C6471B0D10D0008A15A0 /* LaunchScreen.xib */,
 				30A5C6381B0D10D0008A15A0 /* Supporting Files */,
@@ -214,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A5C6411B0D10D0008A15A0 /* ViewController.m in Sources */,
+				30014BAF1B23CB26005A07CD /* BLCWhiskeyViewController.m in Sources */,
 				30A5C63E1B0D10D0008A15A0 /* AppDelegate.m in Sources */,
 				30A5C63B1B0D10D0008A15A0 /* main.m in Sources */,
 			);

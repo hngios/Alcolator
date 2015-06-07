@@ -18,11 +18,11 @@
 
 //@property (weak, nonatomic) UILabel *resultLabel;
 
-//@property (weak, nonatomic) UIButton *calculateButton;
+@property (weak, nonatomic) UIButton *calculateButton;
 
-//@property (weak, nonatomic) UILabel *numberOfBeersLabel;
+@property (strong, nonatomic) UILabel *numberOfBeersLabel;
 
-//@property (weak, nonatomic) UITapGestureRecognizer *hideKeyboardTapGestureRecognizer;
+@property (weak, nonatomic) UITapGestureRecognizer *hideKeyboardTapGestureRecognizer;
 
 @end
 
@@ -32,7 +32,7 @@
     [super viewDidLoad];  //calls the superclass's implementation
     
     // Set our primary view's background color to lightGrayColor
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor redColor];
     
     // Tells the text field that `self`, this instance of `BLCViewController` should be treated as the text field's delegate
     self.beerPercentTextField.delegate = self;
@@ -52,7 +52,7 @@
     [self.calculateButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
    
     // Set the title of the button
-    [self.calculateButton setTitle:NSLocalizedString(@"Calculate!",@"Calculate comamnd") forState:UIControlStateNormal];
+    [self.calculateButton setTitle:NSLocalizedString(@"Calculate!",@"Calculate comand") forState:UIControlStateNormal];
 
     // Tells the tap gesture recognizer to call `[self -tapGestureDidFire:]` when it detects a tap.
     [self.hideKeyboardTapGestureRecognizer addTarget:self action:@selector(tapGestureDidFire:)];
@@ -93,9 +93,11 @@
     self.resultLabel = label;
   //  self.numberOfBeersLabel = [[UILabel alloc] init];
     self.calculateButton = button;
+    self.calculateButton.tintColor = [UIColor redColor];
     self.hideKeyboardTapGestureRecognizer = tap;
     self.numberOfBeersLabel.text = @"5";
     self.resultLabel.text = @"Result Here";
+    self.resultLabel.textColor = [UIColor blueColor];
 }
      -(void)viewWillLayoutSubviews {
          [super viewWillLayoutSubviews];
@@ -106,7 +108,7 @@
          CGFloat itemHeight = 44;
          
          self.beerPercentTextField.frame = CGRectMake(padding, padding, itemWidth, itemHeight);
-     //    self.beerPercentTextField.backgroundColor = [UIColor yellowColor];
+         self.beerPercentTextField.backgroundColor = [UIColor whiteColor];
          
          CGFloat bottomOfTextField = CGRectGetMaxY(self.beerPercentTextField.frame);
          self.beerCountSlider.frame = CGRectMake(padding, bottomOfTextField + padding, itemWidth, itemHeight);
@@ -116,11 +118,12 @@
          
          CGFloat bottomNumberOfBeersLabel = CGRectGetMaxY(self.beerCountSlider.frame);
          self.numberOfBeersLabel.frame = CGRectMake(padding, bottomNumberOfBeersLabel + padding, itemWidth, itemHeight);
-      //   self.numberOfBeersLabel.backgroundColor = [UIColor redColor];
+         self.numberOfBeersLabel.backgroundColor = [UIColor whiteColor];
+         self.numberOfBeersLabel.textColor = [UIColor lightGrayColor];
          
          CGFloat bottomOfLabel = CGRectGetMaxY(self.resultLabel.frame);
          self.calculateButton.frame = CGRectMake(padding, bottomOfLabel + padding, itemWidth, itemHeight);
-         
+         self.calculateButton.backgroundColor = [UIColor whiteColor];
      }
      
 - (void)textFieldDidChange:(UITextField *)sender {
