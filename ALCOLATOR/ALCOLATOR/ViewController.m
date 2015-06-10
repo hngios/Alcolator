@@ -60,6 +60,8 @@
     // Get rid of the maximum number of lines on the label
     self.resultLabel.numberOfLines = 0;
     
+    self.title = NSLocalizedString(@"Wine", @"Wine");
+    
 }
 
 - (void)didReceiveMemoryWarning {
