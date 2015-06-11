@@ -109,7 +109,7 @@
          CGFloat itemWidth = viewWidth - padding - padding;
          CGFloat itemHeight = 44;
          
-         self.beerPercentTextField.frame = CGRectMake(padding, padding, itemWidth, itemHeight);
+         self.beerPercentTextField.frame = CGRectMake(padding, padding * 3, itemWidth, itemHeight);
          self.beerPercentTextField.backgroundColor = [UIColor whiteColor];
          
          CGFloat bottomOfTextField = CGRectGetMaxY(self.beerPercentTextField.frame);
@@ -124,7 +124,7 @@
          self.numberOfBeersLabel.textColor = [UIColor lightGrayColor];
          
          CGFloat bottomOfLabel = CGRectGetMaxY(self.resultLabel.frame);
-         self.calculateButton.frame = CGRectMake(padding, bottomOfLabel + padding, itemWidth, itemHeight);
+         self.calculateButton.frame = CGRectMake(padding, bottomOfLabel - padding, itemWidth, itemHeight);
          self.calculateButton.backgroundColor = [UIColor whiteColor];
      }
      
