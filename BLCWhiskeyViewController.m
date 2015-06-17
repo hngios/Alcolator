@@ -14,6 +14,16 @@
 
 @implementation BLCWhiskeyViewController
 
+- (instancetype) init {
+    self = [super init];
+    
+    if (self) {
+        self.title = NSLocalizedString(@"Whiskey", nil);
+        
+    }
+    return self;
+}
+
 // DELETE PRE-WRITTEN METHODS: initiWithNibName:bundle:, viewDidLoad, didReceiveMemoryWarning…
 
 -(void)buttonPressed:(UIButton *)sender;
@@ -56,8 +66,12 @@
 - (void) viewDidLoad    {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Whiskey", @"Whiskey");
+   // self.title = NSLocalizedString(@"Whiskey", @"Whiskey");
     
+    
+    
+    
+      self.view.backgroundColor = [UIColor colorWithRed:0.992 green:0.992 blue:0.518 alpha:1]; /*fdfd96*/
 }
 
 @end

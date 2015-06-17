@@ -28,6 +28,18 @@
 
 @implementation ViewController
 
+- (instancetype) init {
+    self = [super init];
+    
+    if (self) {
+        self.title = NSLocalizedString(@"Wine", @"Wine");
+        
+        //Since we have no icon, we will move to the middle
+        [self.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -18)];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];  //calls the superclass's implementation
     
@@ -60,7 +72,8 @@
     // Get rid of the maximum number of lines on the label
     self.resultLabel.numberOfLines = 0;
     
-    self.title = NSLocalizedString(@"Wine", @"Wine");
+   // self.title = NSLocalizedString(@"Wine", @"Wine");
+    self.view.backgroundColor = [UIColor colorWithRed:0.741 green:0.925 blue:0.714 alpha:1]; /*bdecb6*/
     
 }
 
@@ -109,7 +122,7 @@
          CGFloat itemWidth = viewWidth - padding - padding;
          CGFloat itemHeight = 44;
          
-         self.beerPercentTextField.frame = CGRectMake(padding, padding * 3, itemWidth, itemHeight);
+         self.beerPercentTextField.frame = CGRectMake(padding, padding, itemWidth, itemHeight);
          self.beerPercentTextField.backgroundColor = [UIColor whiteColor];
          
          CGFloat bottomOfTextField = CGRectGetMaxY(self.beerPercentTextField.frame);
@@ -124,7 +137,7 @@
          self.numberOfBeersLabel.textColor = [UIColor lightGrayColor];
          
          CGFloat bottomOfLabel = CGRectGetMaxY(self.resultLabel.frame);
-         self.calculateButton.frame = CGRectMake(padding, bottomOfLabel - padding, itemWidth, itemHeight);
+         self.calculateButton.frame = CGRectMake(padding, bottomOfLabel + padding, itemWidth, itemHeight);
          self.calculateButton.backgroundColor = [UIColor whiteColor];
      }
      
@@ -142,9 +155,11 @@
 
 
 - (void) sliderValueDidChange:(UISlider *)sender {
-    NSString *resultText = [NSString stringWithFormat:@"%ld beers", (long)sender.value];
-    self.numberOfBeersLabel.text = resultText;
+  //  NSString *resultText = [NSString stringWithFormat:@"%ld beers", (long)sender.value];
+  //  self.numberOfBeersLabel.text = resultText;
+    NSLog(@"Slider value changed to %f", sender.value);
     [self.beerPercentTextField resignFirstResponder];
+    [self.tabBarItem setBadgeValue:[NSString stringWithFormat:@"%d", (int) sender.value]];
     
 }
 
@@ -197,6 +212,7 @@
 - (void) tapGestureDidFire:(UITapGestureRecognizer *)sender {
           [self.beerPercentTextField resignFirstResponder];
 }
+
 
 
 @end
